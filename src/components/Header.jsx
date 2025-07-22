@@ -13,7 +13,7 @@ const Header = ({ theme, onThemeToggle }) => {
                         }}
                         onError={(e) => {
                             e.target.style.display = "none";
-                            e.target.parentElement.innerHTML = `<span style="color ${
+                            e.target.parentElement.innerHTML = `<span style="color: ${
                                 theme === "dark" ? "white" : "black"
                             };"></span>`;
                         }} 
@@ -40,9 +40,7 @@ const Header = ({ theme, onThemeToggle }) => {
                                 ? "/assets/images/icon-moon.svg"
                                 : "/assets/images/icon-sun.svg"
                         }
-                        alt={
-                            theme === "light"
-                        }
+                        alt={theme === "light" ? "moon icon" : "sun icon"}
                         style={
                             theme === "dark"
                                 ? { width: "20px", height: "20px", filter: "invert(0.2)" }
