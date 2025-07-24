@@ -24,15 +24,6 @@ const Header = ({ theme, onThemeToggle }) => {
                 className={`theme-toggle ${theme}`}
                 onClick={onThemeToggle}
                 aria-label='Toggle theme'
-                style={
-                    theme === "dark"
-                        ? {
-                            backgroundColor: "white",
-                            borderRadius: "0.75rem",
-                            padding: "6px",
-                        }
-                    : {}
-                }
                 >
                     <img
                         src={
