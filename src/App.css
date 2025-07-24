@@ -188,7 +188,7 @@ body {
 }
 
 .extension-card.dark {
-  background-color: var(--neutral-900);
+  background-color: var(--neutral-800);
   border-color: var(--neutral-600);
 }
 
@@ -261,17 +261,21 @@ body {
 }
 
 .remove-btn.light {
-  background-color: var(--neutral-100);
+  background-color: transparent;
   color: var(--neutral-600);
 }
 
 .remove-btn.dark {
-  background-color: var(--neutral-600);
+  background-color: transparent;
   color: var(--neutral-200);
 }
 
-.remove-btn:hover {
-  opacity: 0.8;
+.remove-btn.dark:hover {
+  background-color: var(--neutral-600);
+}
+
+.remove-btn.light:hover {
+  background-color: var(--red-400);
 }
 
 /* Toggle Switch */
