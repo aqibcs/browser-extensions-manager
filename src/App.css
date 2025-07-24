@@ -83,32 +83,6 @@ body {
   justify-content: center;
 }
 
-.logo {
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-.logo::before {
-  display: none;
-}
-
-.header-title {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.header.dark .logo {
-  color: white;
-}
-
 .theme-toggle {
   width: 48px;
   height: 48px;
@@ -122,7 +96,7 @@ body {
 }
 
 .theme-toggle.dark {
-  background-color: white;
+  background-color: var(--neutral-100);
   border-radius: 50%;
   padding: 6px;
 }
@@ -139,5 +113,210 @@ body {
 }
 
 .theme-toggle:hover {
+  box-shadow: 0 0 0 2px var(--red-500)
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: var(--neutral-100);
+}
+
+.filter-btn.active {
+  background-color: var(--red-500);
+  color: var(--neutral-100);
+}
+
+.filter-btn.inactive.dark {
+  background-color: var(--neutral-700);
+  color: var(--neutral-300);
+}
+
+.filter-btn.inactive.light {
+  background-color: var(--neutral-100);
+  color: var(--neutral-600);
+}
+
+.filter-btn:hover {
+  box-shadow: 0 0 0 2px var(--red-500)
+}
+
+/* Extensions Grid */
+.extensions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+/* Extension Card */
+.extension-card {
+  padding: 24px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.extension-card.light {
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.extension-card.dark {
+  background-color: var(--neutral-900);
+  border-color: var(--neutral-600);
+}
+
+.extension-card:hover {
+  transform: translateY(-2px);
+}
+
+.extension-card.light:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.extension-card.dark:hover {
+  border-color: var(--neutral-600);
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.extension-icon {
+  width: 40px;
+  height: 35px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.extension-icon img {
+  width: 45px;
+  height: 45px;
+}
+
+.extension-info {
+  flex: 1;
+}
+
+.extension-name {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: -5px;
+  margin-bottom: 8px;
+}
+
+.extension-description {
+  font-size: 14px;
+  line-height: 1.5;
   opacity: 0.8;
+  font-weight: 400;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remove-btn {
+  padding: 8px 16px;
+  border: 1px solid;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.remove-btn.light {
+  background-color: var(--neutral-100);
+  color: var(--neutral-600);
+}
+
+.remove-btn.dark {
+  background-color: var(--neutral-600);
+  color: var(--neutral-200);
+}
+
+.remove-btn:hover {
+  opacity: 0.8;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  background-color: var(--neutral-600);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-switch.active {
+  background-color: var(--red-400);
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--neutral-100);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.toggle-switch.active .toggle-slider {
+  transform: translateX(24px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .extensions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .main-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .filter-buttons {
+    width: 100%;
+    justify-content: center;
+  }
 }
