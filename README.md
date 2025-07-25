@@ -1,12 +1,34 @@
-# React + Vite
+# Browser Extensions Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application that displays a list of browser extensions with filtering, toggling, and removal functionality. It supports light and dark themes, dynamic filtering, and stateful extension management via custom hooks.
 
-Currently, two official plugins are available:
+## ScreenShot
+![project screenshot](./preview.jpg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- View a list of extensions with name, description, and logo
+- Toggle extension activation state (active or inactive)
+- Remove extensions from the list
+- Filter extensions by All, Active, or Inactive
+- Light and Dark mode theme toggle
+- Error handling and loading states
+- Built with React
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Getting Started
+
+### Installation
+
+```bash
+git clone https://github.com/aqibcs/browser-extensions-manager.git
+cd browser-extensions-manager
+npm install
+```
+
+### Running the App
+
+```bash
+npm run dev
+```
+
