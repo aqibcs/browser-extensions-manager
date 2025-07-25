@@ -84,6 +84,7 @@ body {
 }
 
 .theme-toggle {
+  position: relative;
   width: 48px;
   height: 48px;
   border: none;
@@ -94,18 +95,12 @@ body {
   justify-content: center;
   transition: background-color 0.3s ease;
   background-color: var(--neutral-200);
+  z-index: 1;
 }
 
 .theme-toggle.dark {
   background-color: var(--neutral-600);
-  border-radius: 12px;
   padding: 6px;
-}
-
-.theme-toggle.dark img {
-  filter: invert(0.2);
-  width: 20px;
-  height: 20px;
 }
 
 .theme-toggle img {
@@ -113,8 +108,22 @@ body {
   height: 20px;
 }
 
-.theme-toggle:hover {
-  box-shadow: 0 0 0 2px var(--red-500)
+.theme-toggle.dark img {
+  filter: invert(0.2);
+}
+
+.theme-toggle::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  z-index: -1;
+}
+
+.theme-toggle:hover::after {
+  border-color: var(--red-500);
 }
 
 /* Main Content */
@@ -133,10 +142,11 @@ body {
 /* Filter Buttons */
 .filter-buttons {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .filter-btn {
+  position: relative;
   padding: 12px 24px;
   border: none;
   border-radius: 9999px;
@@ -146,11 +156,31 @@ body {
   transition: all 0.3s ease;
   background: transparent;
   color: var(--neutral-100);
+  z-index: 1;
+}
+
+.filter-btn::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  z-index: 0;
+}
+
+
+.filter-btn:hover::after {
+  border-color: var(--red-500);
 }
 
 .filter-btn.active {
   background-color: var(--red-500);
   color: var(--neutral-100);
+}
+
+.filter-btn.active::after {
+  border-color: var(--red-500);
 }
 
 .filter-btn.inactive.dark {
@@ -161,10 +191,6 @@ body {
 .filter-btn.inactive.light {
   background-color: var(--neutral-100);
   color: var(--neutral-600);
-}
-
-.filter-btn:hover {
-  box-shadow: 0 0 0 2px var(--red-500)
 }
 
 /* Extensions Grid */
@@ -251,13 +277,29 @@ body {
 }
 
 .remove-btn {
+  position: relative;
   padding: 8px 16px;
-  border: 1px solid;
+  border: 1px solid transparent;
   border-radius: 15px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.remove-btn::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 19px;
+  border: 2px solid var(--neutral-300);
+  transition: border-color 0.3s ease;
+  z-index: -1;
+}
+
+.remove-btn:hover::after {
+  border-color: var(--red-500);
 }
 
 .remove-btn.light {
@@ -276,6 +318,7 @@ body {
 
 .remove-btn.light:hover {
   background-color: var(--red-400);
+  color: var(--neutral-0);
 }
 
 /* Toggle Switch */
@@ -287,10 +330,7 @@ body {
   border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.toggle-switch.active {
-  background-color: var(--red-400);
+  z-index: 1;
 }
 
 .toggle-slider {
@@ -302,10 +342,34 @@ body {
   background-color: var(--neutral-100);
   border-radius: 50%;
   transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+/* Active state */
+.toggle-switch.active {
+  background-color: var(--red-400);
 }
 
 .toggle-switch.active .toggle-slider {
   transform: translateX(24px);
+}
+
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  border: 2px solid transparent;
+  pointer-events: none;
+  transition: border-color 0.3s ease;
+  z-index: -1;
+}
+
+.toggle-switch::after {
+  inset: -4px;
+  border-radius: 16px;
+}
+
+.toggle-switch:hover::after {
+  border-color: var(--red-500);
 }
 
 /* Responsive */
